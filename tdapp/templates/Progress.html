@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<h3>Expired Tasks</h3>
+<div style="width: 275px; left: 100%;">
+    <div class="container alert-success" style="border-radius: 10px;" >
+        <ul class="list-group" style="list-style-type: none;">
+        {% for tasks in object_list %}
+        <div style="padding-top: 5px;">
+            <li class="list-group-item-success">{{tasks.task_name}}- {{tasks.task_time |naturalday}}</li>
+        </div>
+        <br>
+        <hr size="5px">
+        {% endfor %}    
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

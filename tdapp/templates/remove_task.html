@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="container alert-success" style="border-radius: 10px;">
+    <h1>Remove Task</h1>
+
+    <br>
+    <br>
+    <br>
+    
+    <div class="form-group">
+    <form method=POST>
+        {% csrf_token %}
+        <p>Are you sure to remove this task</p>
+        <button class="btn btn-danger">remove</button>
+    </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

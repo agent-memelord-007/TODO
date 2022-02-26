@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<h1>Tasks</h1>
+
+
+<div class="container alert-success" style="border-radius: 10px; width: auto;">
+    <p>Here you can see, add, remove your  tasks</p>
+    <br>
+    <br>
+    <a href="{% url 'New-Task' %}"<button class="btn btn-dark">Add Task</button></a>
+    
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="container alert-success" style="border-radius: 10px;" >
+    <ul class="list-group" style="list-style-type: none;">
+    {% for tasks in object_list %}
+    <li class="list-group-item-success">{{tasks.task_name}}- {{tasks.task_time |naturalday}}</li>
+    <a href="{% url 'remove_task' tasks.pk %}"><button class="btn btn-light" style="width: 60px;"><img src="{% static 'yeet.png' %}" width="30px" height="30px"></button></a>
+        
+    <br>
+    <hr size="5px">
+    {% endfor %}    
+    </ul>
+</div>
+
+
+
+
+
+
+{% endblock %}
